@@ -172,10 +172,10 @@ const App: FunctionComponent = () => {
 };
 ```
 
-### Constants (iOS only)
+### Constants
 
-- _PassKit.AddPassButtonStyle_ - The appearance of the add-pass button
+- _PassKit.AddPassButtonStyle_ - Options for the AddPassButton's style
   - _black_ - A black button with white lettering
   - _blackOutline_ - A black button with a light outline
-- _PassKit.AddPassButtonWidth_ - Default add-pass button width
-- _PassKit.AddPassButtonHeight_ - Default add-pass button height
+- _PassKit.AddPassButtonWidth_ - The AddPassButton's default width
+- _PassKit.AddPassButtonHeight_ - The AddPassButton's default height
