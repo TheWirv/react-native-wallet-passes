@@ -1,6 +1,6 @@
 //
-//  RNPKAddPassButtonContainer.h
-//  RNPassKit
+//  RNWPAddPassButtonContainer.h
+//  RNWalletPass
 //
 //  Created by Masayuki Iwai on 2018/02/13.
 //  Copyright © 2018 Masayuki Iwai. All rights reserved.
@@ -9,7 +9,7 @@
 #import <PassKit/PassKit.h>
 #import <React/RCTComponent.h>
 
-@interface RNPKAddPassButtonContainer : UIView
+@interface RNWPAddPassButtonContainer : UIView
 
 - (instancetype)initWithAddPassButtonStyle:(PKAddPassButtonStyle)style;
 

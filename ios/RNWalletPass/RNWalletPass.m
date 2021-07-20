@@ -1,15 +1,15 @@
 //
-//  RNPassKit.m
-//  RNPassKit
+//  RNWalletPass.m
+//  RNWalletPass
 //
 //  Created by Masayuki Iwai on 2018/02/09.
 //  Copyright © 2018 Masayuki Iwai. All rights reserved.
 //
 
 #import <PassKit/PassKit.h>
-#import "RNPassKit.h"
+#import "RNWalletPass.h"
 
-@implementation RNPassKit
+@implementation RNWalletPass
 
 RCT_EXPORT_MODULE()
 
@@ -29,7 +29,7 @@ RCT_EXPORT_METHOD(addPass:(NSString *)base64Encoded
     reject(@"", @"Failed to create pass.", error);
     return;
   }
-  
+
   dispatch_async(dispatch_get_main_queue(), ^{
     UIApplication *sharedApplication = RCTSharedApplication();
     UIWindow *window = sharedApplication.keyWindow;
@@ -45,7 +45,7 @@ RCT_EXPORT_METHOD(addPass:(NSString *)base64Encoded
         return;
       }
     }
-    
+
     reject(@"", @"Failed to present PKAddPassesViewController.", nil);
   });
 }
@@ -53,7 +53,7 @@ RCT_EXPORT_METHOD(addPass:(NSString *)base64Encoded
 - (NSDictionary *)constantsToExport {
   PKAddPassButton *addPassButton = [[PKAddPassButton alloc] initWithAddPassButtonStyle:PKAddPassButtonStyleBlack];
   [addPassButton layoutIfNeeded];
-  
+
   return @{
            @"AddPassButtonStyle": @{
                @"black": @(PKAddPassButtonStyleBlack),

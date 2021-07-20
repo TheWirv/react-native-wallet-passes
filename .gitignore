@@ -6,7 +6,6 @@
 # Icon must end with two \r
 Icon
 
-
 # Thumbnails
 ._*
 
@@ -108,3 +107,11 @@ typings/
 
 # dotenv environment variables file
 .env
+
+# Android stuff
+.idea
+.gradle
+gradle/
+gradlew
+gradlew.bat
+local.properties

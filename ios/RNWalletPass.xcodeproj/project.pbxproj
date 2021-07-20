@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6D42A7EC20341EE600A0D1AE /* RNPKAddPassButtonManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D42A7E420341EE600A0D1AE /* RNPKAddPassButtonManager.m */; };
-		6D42A7ED20341EE600A0D1AE /* RCTConvert+RNPassKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D42A7E720341EE600A0D1AE /* RCTConvert+RNPassKit.m */; };
-		6D42A7EE20341EE600A0D1AE /* RNPKAddPassButtonContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D42A7E820341EE600A0D1AE /* RNPKAddPassButtonContainer.m */; };
-		6D42A7EF20341EE600A0D1AE /* RNPassKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D42A7E920341EE600A0D1AE /* RNPassKit.m */; };
+		6D42A7EC20341EE600A0D1AE /* RNWPAddPassButtonManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D42A7E420341EE600A0D1AE /* RNWPAddPassButtonManager.m */; };
+		6D42A7ED20341EE600A0D1AE /* RCTConvert+RNWalletPass.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D42A7E720341EE600A0D1AE /* RCTConvert+RNWalletPass.m */; };
+		6D42A7EE20341EE600A0D1AE /* RNWPAddPassButtonContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D42A7E820341EE600A0D1AE /* RNWPAddPassButtonContainer.m */; };
+		6D42A7EF20341EE600A0D1AE /* RNWalletPass.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D42A7E920341EE600A0D1AE /* RNWalletPass.m */; };
 		6D42A7F220341F2000A0D1AE /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D42A7F120341F2000A0D1AE /* PassKit.framework */; };
-		6D42A7F32034209A00A0D1AE /* RNPassKit.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6D42A7E520341EE600A0D1AE /* RNPassKit.h */; };
+		6D42A7F32034209A00A0D1AE /* RNWalletPass.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6D42A7E520341EE600A0D1AE /* RNWalletPass.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -22,22 +22,22 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				6D42A7F32034209A00A0D1AE /* RNPassKit.h in CopyFiles */,
+				6D42A7F32034209A00A0D1AE /* RNWalletPass.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		6D42A7D820341E6800A0D1AE /* libRNPassKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNPassKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		6D42A7E420341EE600A0D1AE /* RNPKAddPassButtonManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNPKAddPassButtonManager.m; sourceTree = "<group>"; };
-		6D42A7E520341EE600A0D1AE /* RNPassKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNPassKit.h; sourceTree = "<group>"; };
-		6D42A7E620341EE600A0D1AE /* RCTConvert+RNPassKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RCTConvert+RNPassKit.h"; sourceTree = "<group>"; };
-		6D42A7E720341EE600A0D1AE /* RCTConvert+RNPassKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RCTConvert+RNPassKit.m"; sourceTree = "<group>"; };
-		6D42A7E820341EE600A0D1AE /* RNPKAddPassButtonContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNPKAddPassButtonContainer.m; sourceTree = "<group>"; };
-		6D42A7E920341EE600A0D1AE /* RNPassKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNPassKit.m; sourceTree = "<group>"; };
-		6D42A7EA20341EE600A0D1AE /* RNPKAddPassButtonContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNPKAddPassButtonContainer.h; sourceTree = "<group>"; };
-		6D42A7EB20341EE600A0D1AE /* RNPKAddPassButtonManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNPKAddPassButtonManager.h; sourceTree = "<group>"; };
+		6D42A7D820341E6800A0D1AE /* libRNWalletPass.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNWalletPass.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D42A7E420341EE600A0D1AE /* RNWPAddPassButtonManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNWPAddPassButtonManager.m; sourceTree = "<group>"; };
+		6D42A7E520341EE600A0D1AE /* RNWalletPass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNWalletPass.h; sourceTree = "<group>"; };
+		6D42A7E620341EE600A0D1AE /* RCTConvert+RNWalletPass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RCTConvert+RNWalletPass.h"; sourceTree = "<group>"; };
+		6D42A7E720341EE600A0D1AE /* RCTConvert+RNWalletPass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RCTConvert+RNWalletPass.m"; sourceTree = "<group>"; };
+		6D42A7E820341EE600A0D1AE /* RNWPAddPassButtonContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNWPAddPassButtonContainer.m; sourceTree = "<group>"; };
+		6D42A7E920341EE600A0D1AE /* RNWalletPass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNWalletPass.m; sourceTree = "<group>"; };
+		6D42A7EA20341EE600A0D1AE /* RNWPAddPassButtonContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNWPAddPassButtonContainer.h; sourceTree = "<group>"; };
+		6D42A7EB20341EE600A0D1AE /* RNWPAddPassButtonManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNWPAddPassButtonManager.h; sourceTree = "<group>"; };
 		6D42A7F120341F2000A0D1AE /* PassKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PassKit.framework; path = System/Library/Frameworks/PassKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -56,7 +56,7 @@
 		6D42A7CF20341E6800A0D1AE = {
 			isa = PBXGroup;
 			children = (
-				6D42A7DA20341E6800A0D1AE /* RNPassKit */,
+				6D42A7DA20341E6800A0D1AE /* RNWalletPass */,
 				6D42A7D920341E6800A0D1AE /* Products */,
 				6D42A7F020341F2000A0D1AE /* Frameworks */,
 			);
@@ -65,24 +65,24 @@
 		6D42A7D920341E6800A0D1AE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6D42A7D820341E6800A0D1AE /* libRNPassKit.a */,
+				6D42A7D820341E6800A0D1AE /* libRNWalletPass.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		6D42A7DA20341E6800A0D1AE /* RNPassKit */ = {
+		6D42A7DA20341E6800A0D1AE /* RNWalletPass */ = {
 			isa = PBXGroup;
 			children = (
-				6D42A7E520341EE600A0D1AE /* RNPassKit.h */,
-				6D42A7E920341EE600A0D1AE /* RNPassKit.m */,
-				6D42A7E620341EE600A0D1AE /* RCTConvert+RNPassKit.h */,
-				6D42A7E720341EE600A0D1AE /* RCTConvert+RNPassKit.m */,
-				6D42A7EA20341EE600A0D1AE /* RNPKAddPassButtonContainer.h */,
-				6D42A7E820341EE600A0D1AE /* RNPKAddPassButtonContainer.m */,
-				6D42A7EB20341EE600A0D1AE /* RNPKAddPassButtonManager.h */,
-				6D42A7E420341EE600A0D1AE /* RNPKAddPassButtonManager.m */,
+				6D42A7E520341EE600A0D1AE /* RNWalletPass.h */,
+				6D42A7E920341EE600A0D1AE /* RNWalletPass.m */,
+				6D42A7E620341EE600A0D1AE /* RCTConvert+RNWalletPass.h */,
+				6D42A7E720341EE600A0D1AE /* RCTConvert+RNWalletPass.m */,
+				6D42A7EA20341EE600A0D1AE /* RNWPAddPassButtonContainer.h */,
+				6D42A7E820341EE600A0D1AE /* RNWPAddPassButtonContainer.m */,
+				6D42A7EB20341EE600A0D1AE /* RNWPAddPassButtonManager.h */,
+				6D42A7E420341EE600A0D1AE /* RNWPAddPassButtonManager.m */,
 			);
-			path = RNPassKit;
+			path = RNWalletPass;
 			sourceTree = "<group>";
 		};
 		6D42A7F020341F2000A0D1AE /* Frameworks */ = {
@@ -96,9 +96,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6D42A7D720341E6800A0D1AE /* RNPassKit */ = {
+		6D42A7D720341E6800A0D1AE /* RNWalletPass */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6D42A7E120341E6900A0D1AE /* Build configuration list for PBXNativeTarget "RNPassKit" */;
+			buildConfigurationList = 6D42A7E120341E6900A0D1AE /* Build configuration list for PBXNativeTarget "RNWalletPass" */;
 			buildPhases = (
 				6D42A7D420341E6800A0D1AE /* Sources */,
 				6D42A7D520341E6800A0D1AE /* Frameworks */,
@@ -108,9 +108,9 @@
 			);
 			dependencies = (
 			);
-			name = RNPassKit;
-			productName = RNPassKit;
-			productReference = 6D42A7D820341E6800A0D1AE /* libRNPassKit.a */;
+			name = RNWalletPass;
+			productName = RNWalletPass;
+			productReference = 6D42A7D820341E6800A0D1AE /* libRNWalletPass.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -127,7 +127,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 6D42A7D320341E6800A0D1AE /* Build configuration list for PBXProject "RNPassKit" */;
+			buildConfigurationList = 6D42A7D320341E6800A0D1AE /* Build configuration list for PBXProject "RNWalletPass" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -139,7 +139,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6D42A7D720341E6800A0D1AE /* RNPassKit */,
+				6D42A7D720341E6800A0D1AE /* RNWalletPass */,
 			);
 		};
 /* End PBXProject section */
@@ -149,10 +149,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6D42A7EC20341EE600A0D1AE /* RNPKAddPassButtonManager.m in Sources */,
-				6D42A7EF20341EE600A0D1AE /* RNPassKit.m in Sources */,
-				6D42A7ED20341EE600A0D1AE /* RCTConvert+RNPassKit.m in Sources */,
-				6D42A7EE20341EE600A0D1AE /* RNPKAddPassButtonContainer.m in Sources */,
+				6D42A7EC20341EE600A0D1AE /* RNWPAddPassButtonManager.m in Sources */,
+				6D42A7EF20341EE600A0D1AE /* RNWalletPass.m in Sources */,
+				6D42A7ED20341EE600A0D1AE /* RCTConvert+RNWalletPass.m in Sources */,
+				6D42A7EE20341EE600A0D1AE /* RNWPAddPassButtonContainer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,7 +296,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6D42A7D320341E6800A0D1AE /* Build configuration list for PBXProject "RNPassKit" */ = {
+		6D42A7D320341E6800A0D1AE /* Build configuration list for PBXProject "RNWalletPass" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6D42A7DF20341E6900A0D1AE /* Debug */,
@@ -305,7 +305,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6D42A7E120341E6900A0D1AE /* Build configuration list for PBXNativeTarget "RNPassKit" */ = {
+		6D42A7E120341E6900A0D1AE /* Build configuration list for PBXNativeTarget "RNWalletPass" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6D42A7E220341E6900A0D1AE /* Debug */,

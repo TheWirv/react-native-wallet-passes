@@ -5,8 +5,7 @@
   },
   "extends": [
     "eslint:recommended",
-    "plugin:react/recommended",
-    "plugin:flowtype/recommended"
+    "plugin:react/recommended"
   ],
   "parser": "babel-eslint",
   "parserOptions": {
@@ -17,8 +16,7 @@
     "sourceType": "module"
   },
   "plugins": [
-    "react",
-    "flowtype"
+    "react"
   ],
   "rules": {
     "indent": [
@@ -37,7 +35,11 @@
       "warn",
       "never"
     ],
-    "no-unused-vars": ["warn", { "args": "none" }],
-    "react/prop-types": "off"
+    "no-unused-vars": [
+      "warn",
+      {
+        "args": "none"
+      }
+    ]
   }
 }

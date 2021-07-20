@@ -1,14 +1,14 @@
 //
-//  RNPKAddPassButtonContainer.m
-//  RNPassKit
+//  RNWPAddPassButtonContainer.m
+//  RNWalletPass
 //
 //  Created by Masayuki Iwai on 2018/02/13.
 //  Copyright © 2018 Masayuki Iwai. All rights reserved.
 //
 
-#import "RNPKAddPassButtonContainer.h"
+#import "RNWPAddPassButtonContainer.h"
 
-@implementation RNPKAddPassButtonContainer
+@implementation RNWPAddPassButtonContainer
 
 - (instancetype)initWithAddPassButtonStyle:(PKAddPassButtonStyle)style {
   if (self = [super init]) {
@@ -20,7 +20,7 @@
     [super setFrame:self.addPassButton.frame];
     [self addSubview:self.addPassButton];
   }
-  
+
   return self;
 }
 

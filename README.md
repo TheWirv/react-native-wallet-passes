@@ -1,16 +1,27 @@
-# react-native-passkit-wallet
-React Native module to handle PassKit pass.
+# React Native WalletPass
+
+React Native module to handle Wallet passes on iOS and Android.
 
 ## Installation
 
-### 1. Install library from `npm`
+### 1. Install library using `yarn`:
 
-```shell
-npm install --save react-native-passkit-wallet
+```bash
+yarn add react-native-walletpass
+```
+
+or use `npm`, if you prefer:
+
+```bash
+npm install --save react-native-walletpass
 ```
 
 ### 2. Link native code
 
+> **Important**: You only need to do this step if you're using React Native 0.59 or lower. Since v0.60, linking happens automatically.
+
+<details>
+<summary>Information about linking for RN < v0.60</summary>
 You can link native code in the way you prefer:
 
 #### CocoaPods
@@ -20,7 +31,7 @@ Add line to your project target section in your Podfile:
 ```diff
 target 'YourProjectTarget' do
 
-+   pod 'react-native-passkit-wallet', path: '../node_modules/react-native-passkit-wallet'
++   pod 'react-native-walletpass', path: '../node_modules/react-native-walletpass'
 
 end
 ```
@@ -34,7 +45,7 @@ target 'YourProjectTarget' do
 +   pod 'yoga', path: "#{rn_path}/ReactCommon/yoga/yoga.podspec"
 +   pod 'React', path: rn_path
 
-  pod 'react-native-passkit-wallet', path: '../node_modules/react-native-passkit-wallet'
+  pod 'react-native-walletpass', path: '../node_modules/react-native-walletpass'
 
 end
 
@@ -51,118 +62,120 @@ end
 
 Run command below:
 
-```shell
-react-native link react-native-passkit-wallet
+```bash
+react-native link react-native-walletpass
 ```
+
+</details>
 
 ### 3. Android configuration
 
-1.  Add following lines to AndroidManifest.xml
+#### Add following lines to AndroidManifest.xml
 
-    ```diff
-    <manifest ...>
-      <application ...>
-        ...
-    +   <provider
-    +     android:name="android.support.v4.content.FileProvider"
-    +     android:authorities="com.yourcompany.fileprovider"
-    +     android:grantUriPermissions="true"
-    +     android:exported="false"
-    +     tools:replace="android:authorities">
-    +     <meta-data
-    +       android:name="android.support.FILE_PROVIDER_PATHS"
-    +       android:resource="@xml/passkit_file_paths"
-    +       tools:replace="android:resource" />
-    +   </provider>
-      </application>
-    </manifest>
-    ```
+```diff
+<manifest ...>
+  <application ...>
+    ...
++   <provider
++     android:name="androidx.core.content.FileProvider"
++     android:authorities="com.yourcompany.fileprovider"
++     android:grantUriPermissions="true"
++     android:exported="false"
++     tools:replace="android:authorities">
++     <meta-data
++       android:name="android.support.FILE_PROVIDER_PATHS"
++       android:resource="@xml/walletpass_file_paths"
++       tools:replace="android:resource" />
++   </provider>
+  </application>
+</manifest>
+```
 
-1.  Create passkit_file_paths.xml
+#### Create walletpass_file_paths.xml
 
-    Create `passkit_file_paths.xml` file in your project's `android/src/main/res/xml` directory.
-    pkpass file will be created in your app's cache directory.
+Create `walletpass_file_paths.xml` file in your project's `android/src/main/res/xml` directory. The .pkpass files will be created in your app's cache directory.
 
-    ```xml
-    <paths xmlns:android="http://schemas.android.com/apk/res/android">
-        <cache-path name="passkit" path="/"/>
-    </paths>
-    ```
+```xml
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+    <cache-path name="walletpass" path="/"/>
+</paths>
+```
 
 ## Usage
 
 ```jsx
-import PassKit, { AddPassButton } from 'react-native-passkit-wallet'
+import {WalletPass} from 'react-native-walletpass';
 ```
 
 ### Check whether the device supports adding passes
 
 ```jsx
-PassKit.canAddPasses()
-  .then((result) => {
-    console.log(result)
-  })
+WalletPass.canAddPasses().then((result) => {
+  console.log('Can add passes:', result);
+});
 ```
 
-For Android, `true` will be returned if apps that can open pkpass files are installed.
+> For Android, `true` will be returned if at least one app is installed that can open .pkpass files.
 
-### Prompt the user to add the pass to the pass library
+### Add the pass to the Wallet
 
 ```jsx
-PassKit.addPass(base64EncodedPass)
+WalletPass.addPass(base64EncodedPass);
 ```
 
-For Android, file provider has to be specified for the second argument.
-And a dialogue box will appear to choose an app to open the pass.
+For Android, a file provider has to be specified for the second argument. Then a dialog box will appear, and ask the user to choose an app opening the pass.
 
 ```jsx
-PassKit.addPass(base64EncodedPass, 'com.yourcompany.fileprovider')
+WalletPass.addPass(base64EncodedPass, 'com.yourcompany.fileprovider');
 ```
 
 ### Display a button that enables users to add passes to Wallet (iOS only)
 
 ```jsx
-class App extends Component<{}> {
-  render() {
-    return (
-      <AddPassButton
-        style={styles.addPassButton}
-        addPassButtonStyle={PassKit.AddPassButtonStyle.black}
-        onPress={() => { console.log('onPress') }}
-      />
-    )
-  }
-}
+import {AddPassButton, AddPassButtonStyle} from 'react-native-walletpass';
+import type {FunctionComponent} from 'react';
+
+const App: FunctionComponent = () => {
+  return (
+    <AddPassButton
+      style={styles.addPassButton}
+      addPassButtonStyle={AddPassButtonStyle.black}
+      onPress={() => {
+        console.log('onPress');
+      }}
+    />
+  );
+};
 ```
 
 ### Handle events (iOS only)
 
 ```jsx
-class App extends Component<{}> {
-  // To keep the context of 'this'
-  onAddPassesViewControllerDidFinish = this.onAddPassesViewControllerDidFinish.bind(this)
+import {useLayoutEffect} from 'react';
+import {WalletPass} from 'react-native-walletpass';
+import type {FunctionComponent} from 'react';
 
-  componentDidMount() {
-    // Add event listener
-    PassKit.addEventListener('addPassesViewControllerDidFinish', this.onAddPassesViewControllerDidFinish)
-  }
+const App: FunctionComponent = () => {
+  useLayoutEffect(() => {
+    const removeWalletPassEventListener = WalletPass.addEventListener(
+      'addPassesViewControllerDidFinish',
+      onAddPassesViewControllerDidFinish,
+    );
 
-  componentWillUnmount() {
-    // Remove event listener
-    PassKit.removeEventListener('addPassesViewControllerDidFinish', this.onAddPassesViewControllerDidFinish)
-  }
+    return removeWalletPassEventListener;
+  }, []);
 
-  onAddPassesViewControllerDidFinish() {
+  const onAddPassesViewControllerDidFinish = () => {
     // Add-passes view controller has been dismissed
-    console.log('onAddPassesViewControllerDidFinish')
-  }
-}
+    console.log('onAddPassesViewControllerDidFinish');
+  };
+};
 ```
 
 ### Constants (iOS only)
 
-- *PassKit.AddPassButtonStyle* - The appearance of the add-pass button
-    - *black* - A black button with white lettering
-    - *blackOutline* - A black button with a light outline
-- *PassKit.AddPassButtonWidth* - Default add-pass button width
-- *PassKit.AddPassButtonHeight* - Default add-pass button height
+- _PassKit.AddPassButtonStyle_ - The appearance of the add-pass button
+  - _black_ - A black button with white lettering
+  - _blackOutline_ - A black button with a light outline
+- _PassKit.AddPassButtonWidth_ - Default add-pass button width
+- _PassKit.AddPassButtonHeight_ - Default add-pass button height
