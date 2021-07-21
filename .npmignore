@@ -8,3 +8,4 @@ android/gradlew.bat
 android/local.properties
 .eslintrc.json
 **/project.xcworkspace/
+yarn.lock
