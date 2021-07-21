@@ -1,6 +1,10 @@
 # React Native WalletPasses
 
-React Native module to handle Wallet passes on iOS and Android.
+[![star this repo](https://githubbadges.com/star.svg?user=TheWirv&repo=react-native-wallet-passes&style=flat)](https://github.com/TheWirv/react-native-wallet-passes)
+[![fork this repo](https://githubbadges.com/fork.svg?user=TheWirv&repo=react-native-wallet-passes&style=flat)](https://github.com/TheWirv/react-native-wallet-passes/fork)
+[![NPM Version](https://img.shields.io/npm/v/react-native-wallet-passes.svg?style=flat-square)](https://www.npmjs.com/package/react-native-wallet-passes)
+
+**React Native WalletPasses** is a module to handle Wallet passes on iOS and Android.
 
 ## Installation
 
