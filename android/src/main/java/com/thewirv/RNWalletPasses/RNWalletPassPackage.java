@@ -1,4 +1,4 @@
-package com.thewirv.RNWalletPass;
+package com.thewirv.RNWalletPasses;
 
 import androidx.annotation.NonNull;
 
@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class RNWalletPassPackage implements ReactPackage {
+public class RNWalletPassesPackage implements ReactPackage {
     @Override
     @NonNull
     public List<ViewManager> createViewManagers(@NonNull ReactApplicationContext reactContext) {
@@ -23,7 +23,7 @@ public class RNWalletPassPackage implements ReactPackage {
     public List<NativeModule> createNativeModules(@NonNull ReactApplicationContext reactContext) {
         List<NativeModule> modules = new ArrayList<>();
 
-        modules.add(new RNWalletPassModule(reactContext));
+        modules.add(new RNWalletPassesModule(reactContext));
 
         return modules;
     }

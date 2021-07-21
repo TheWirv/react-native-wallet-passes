@@ -1,11 +1,11 @@
 {
-  "name": "react-native-walletpass",
+  "name": "react-native-wallet-passes",
   "version": "1.0.0",
   "description": "React Native module to handle Wallet passes on iOS and Android.",
   "main": "index",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/TheWirv/react-native-walletpass.git"
+    "url": "git+https://github.com/TheWirv/react-native-wallet-passes.git"
   },
   "keywords": [
     "react-native",
@@ -26,7 +26,7 @@
     }
   ],
   "license": "MIT",
-  "homepage": "https://github.com/TheWirv/react-native-walletpass#readme",
+  "homepage": "https://github.com/TheWirv/react-native-wallet-passes#readme",
   "devDependencies": {
     "@babel/core": "^7.14.6",
     "@babel/eslint-parser": "^7.14.7",

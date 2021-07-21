@@ -11,9 +11,9 @@ Pod::Spec.new do |s|
   s.license         = package['license']
   s.author          = { package['author']['name'] => package['author']['email'] }
   s.platform        = :ios, '9.0'
-  s.source          = { git: 'https://github.com/TheWirv/react-native-walletpass.git',
+  s.source          = { git: 'https://github.com/TheWirv/react-native-wallet-passes.git',
                         tag: "v#{s.version}" }
-  s.source_files    = 'ios/RNWalletPass/*.{h,m}'
+  s.source_files    = 'ios/RNWalletPasses/*.{h,m}'
   s.preserve_paths  = '**/*.{tsx,ts,js}'
 
   s.dependency 'React-Core'

@@ -1,4 +1,4 @@
-package com.thewirv.RNWalletPass;
+package com.thewirv.RNWalletPasses;
 
 import android.content.Context;
 import android.content.Intent;
@@ -21,26 +21,26 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
-public class RNWalletPassModule extends ReactContextBaseJavaModule {
-    public RNWalletPassModule(ReactApplicationContext reactContext) {
+public class RNWalletPassesModule extends ReactContextBaseJavaModule {
+    public RNWalletPassesModule(ReactApplicationContext reactContext) {
         super(reactContext);
     }
 
     @Override
     @NonNull
     public String getName() {
-        return "RNWalletPass";
+        return "RNWalletPasses";
     }
 
     @Override
     public Map<String, Object> getConstants() {
         final Map<String, Object> addPassButtonStyle = new HashMap<>();
         final Map<String, Object> constants = new HashMap<>();
-        addPassButtonStyle.put("black", 0);
-        addPassButtonStyle.put("blackOutline", 1);
-        constants.put("AddPassButtonStyle", addPassButtonStyle);
-        constants.put("AddPassButtonWidth", 0);
-        constants.put("AddPassButtonHeight", 1);
+        addPassButtonStyle.put("BLACK", 0);
+        addPassButtonStyle.put("BLACK_OUTLINE", 1);
+        constants.put("ADD_PASS_BUTTON_STYLE", addPassButtonStyle);
+        constants.put("ADD_PASS_BUTTON_WIDTH", 0);
+        constants.put("ADD_PASS_BUTTON_HEIGHT", 0);
         return constants;
     }
 

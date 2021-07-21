@@ -1,15 +1,15 @@
 //
-//  RNWalletPass.m
-//  RNWalletPass
+//  RNWalletPasses.m
+//  RNWalletPasses
 //
 //  Created by Masayuki Iwai on 2018/02/09.
 //  Copyright © 2018 Masayuki Iwai. All rights reserved.
 //
 
 #import <PassKit/PassKit.h>
-#import "RNWalletPass.h"
+#import "RNWalletPasses.h"
 
-@implementation RNWalletPass
+@implementation RNWalletPasses
 
 RCT_EXPORT_MODULE()
 
@@ -55,12 +55,12 @@ RCT_EXPORT_METHOD(addPass:(NSString *)base64Encoded
   [addPassButton layoutIfNeeded];
 
   return @{
-           @"AddPassButtonStyle": @{
-               @"black": @(PKAddPassButtonStyleBlack),
-               @"blackOutline": @(PKAddPassButtonStyleBlackOutline),
+           @"ADD_PASS_BUTTON_STYLE": @{
+               @"BLACK": @(PKAddPassButtonStyleBlack),
+               @"BLACK_OUTLINE": @(PKAddPassButtonStyleBlackOutline),
                },
-           @"AddPassButtonWidth": @(CGRectGetWidth(addPassButton.frame)),
-           @"AddPassButtonHeight": @(CGRectGetHeight(addPassButton.frame)),
+           @"ADD_PASS_BUTTON_WIDTH": @(CGRectGetWidth(addPassButton.frame)),
+           @"ADD_PASS_BUTTON_HEIGHT": @(CGRectGetHeight(addPassButton.frame)),
            };
 }
 

@@ -1,4 +1,4 @@
-# React Native WalletPass
+# React Native WalletPasses
 
 React Native module to handle Wallet passes on iOS and Android.
 
@@ -7,13 +7,13 @@ React Native module to handle Wallet passes on iOS and Android.
 ### 1. Install library using `yarn`:
 
 ```bash
-yarn add react-native-walletpass
+yarn add react-native-wallet-passes
 ```
 
 or use `npm`, if you prefer:
 
 ```bash
-npm install --save react-native-walletpass
+npm install --save react-native-wallet-passes
 ```
 
 ### 2. Link native code
@@ -31,7 +31,7 @@ Add line to your project target section in your Podfile:
 ```diff
 target 'YourProjectTarget' do
 
-+   pod 'react-native-walletpass', path: '../node_modules/react-native-walletpass'
++   pod 'react-native-wallet-passes', path: '../node_modules/react-native-wallet-passes'
 
 end
 ```
@@ -45,13 +45,13 @@ target 'YourProjectTarget' do
 +   pod 'yoga', path: "#{rn_path}/ReactCommon/yoga/yoga.podspec"
 +   pod 'React', path: rn_path
 
-  pod 'react-native-walletpass', path: '../node_modules/react-native-walletpass'
+  pod 'react-native-wallet-passes', path: '../node_modules/react-native-wallet-passes'
 
 end
 
 + post_install do |installer|
 +   installer.pods_project.targets.each do |target|
-+     if target.name == "React"
++     if target.name == "React-Core"
 +       target.remove_from_project
 +     end
 +   end
@@ -63,7 +63,7 @@ end
 Run command below:
 
 ```bash
-react-native link react-native-walletpass
+react-native link react-native-wallet-passes
 ```
 
 </details>
@@ -84,33 +84,33 @@ react-native link react-native-walletpass
 +     tools:replace="android:authorities">
 +     <meta-data
 +       android:name="android.support.FILE_PROVIDER_PATHS"
-+       android:resource="@xml/walletpass_file_paths"
++       android:resource="@xml/wallet_passes_file_paths"
 +       tools:replace="android:resource" />
 +   </provider>
   </application>
 </manifest>
 ```
 
-#### Create walletpass_file_paths.xml
+#### Create wallet_passes_file_paths.xml
 
-Create `walletpass_file_paths.xml` file in your project's `android/src/main/res/xml` directory. The .pkpass files will be created in your app's cache directory.
+Create `wallet_passes_file_paths.xml` file in your project's `android/src/main/res/xml` directory. The .pkpass files will be created in your app's cache directory.
 
 ```xml
 <paths xmlns:android="http://schemas.android.com/apk/res/android">
-    <cache-path name="walletpass" path="/"/>
+    <cache-path name="wallet-passes" path="/"/>
 </paths>
 ```
 
 ## Usage
 
 ```jsx
-import {WalletPass} from 'react-native-walletpass';
+import {WalletPasses} from 'react-native-wallet-passes';
 ```
 
 ### Check whether the device supports adding passes
 
 ```jsx
-WalletPass.canAddPasses().then((result) => {
+WalletPasses.canAddPasses().then((result) => {
   console.log('Can add passes:', result);
 });
 ```
@@ -120,20 +120,21 @@ WalletPass.canAddPasses().then((result) => {
 ### Add the pass to the Wallet
 
 ```jsx
-WalletPass.addPass(base64EncodedPass);
+WalletPasses.addPass(base64EncodedPass);
 ```
 
 For Android, a file provider has to be specified for the second argument. Then a dialog box will appear, and ask the user to choose an app opening the pass.
 
 ```jsx
-WalletPass.addPass(base64EncodedPass, 'com.yourcompany.fileprovider');
+WalletPasses.addPass(base64EncodedPass, 'com.yourcompany.fileprovider');
 ```
 
 ### Display a button that enables users to add passes to Wallet (iOS only)
 
 ```jsx
-import {AddPassButton, AddPassButtonStyle} from 'react-native-walletpass';
+import {AddPassButton, AddPassButtonStyle} from 'react-native-wallet-passes';
 import type {FunctionComponent} from 'react';
+import {styles} from './styles';
 
 const App: FunctionComponent = () => {
   return (
@@ -152,17 +153,17 @@ const App: FunctionComponent = () => {
 
 ```jsx
 import {useLayoutEffect} from 'react';
-import {WalletPass} from 'react-native-walletpass';
+import {WalletPasses} from 'react-native-wallet-passes';
 import type {FunctionComponent} from 'react';
 
 const App: FunctionComponent = () => {
   useLayoutEffect(() => {
-    const removeWalletPassEventListener = WalletPass.addEventListener(
+    const removeWalletPassesEventListener = WalletPasses.addEventListener(
       'addPassesViewControllerDidFinish',
       onAddPassesViewControllerDidFinish,
     );
 
-    return removeWalletPassEventListener;
+    return removeWalletPassesEventListener;
   }, []);
 
   const onAddPassesViewControllerDidFinish = () => {

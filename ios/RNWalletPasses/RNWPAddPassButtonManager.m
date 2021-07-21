@@ -1,6 +1,6 @@
 //
 //  RNWPAddPassButtonManager.m
-//  RNWalletPass
+//  RNWalletPasses
 //
 //  Created by Masayuki Iwai on 2018/02/13.
 //  Copyright © 2018 Masayuki Iwai. All rights reserved.
@@ -9,7 +9,7 @@
 #import <PassKit/Passkit.h>
 #import "RNWPAddPassButtonManager.h"
 #import "RNWPAddPassButtonContainer.h"
-#import "RCTConvert+RNWalletPass.h"
+#import "RCTConvert+RNWalletPasses.h"
 
 @implementation RNWPAddPassButtonManager
 
