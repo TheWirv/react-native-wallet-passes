@@ -80,12 +80,14 @@ RCT_EXPORT_METHOD(addPass:(NSString *)base64Encoded
 
 #pragma mark - helper methods
 ​
--(UIViewController*)getPresenterViewController {
+- (UIViewController *)getPresenterViewController {
     UIApplication *sharedApplication = RCTSharedApplication();
     UIViewController *presentingViewcontroller = sharedApplication.delegate.window.rootViewController;
-    if(presentingViewcontroller.presentedViewController != nil) {
+
+    if (presentingViewcontroller.presentedViewController != nil) {
         presentingViewcontroller = presentingViewcontroller.presentedViewController;
     }
+
     return presentingViewcontroller;
 }
 ​
