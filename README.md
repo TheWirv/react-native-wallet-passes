@@ -159,6 +159,7 @@ const App: FunctionComponent = () => {
 
 ```jsx
 import {useLayoutEffect} from 'react';
+import {View} from 'react-native';
 import {WalletPasses} from 'react-native-wallet-passes';
 import type {FunctionComponent} from 'react';
 
@@ -177,14 +178,14 @@ const App: FunctionComponent = () => {
     console.log('onAddPassesViewControllerDidFinish');
   };
 
-  return null;
+  return <View />;
 };
 ```
 
 ### Constants
 
-- _PassKit.AddPassButtonStyle_ - Options for the AddPassButton's style
-  - _black_ - A black button with white lettering
-  - _blackOutline_ - A black button with a light outline
-- _PassKit.AddPassButtonWidth_ - The AddPassButton's default width
-- _PassKit.AddPassButtonHeight_ - The AddPassButton's default height
+- _ADD_PASS_BUTTON_CONSTANTS.STYLE_ - Options for the AddPassButton's style
+  - _BLACK_ - A black button with white lettering
+  - _BLACK_OUTLINE_ - A black button with a light outline
+- _ADD_PASS_BUTTON_CONSTANTS.DEFAULT_WIDTH_ - The AddPassButton's default width
+- _ADD_PASS_BUTTON_CONSTANTS.DEFAULT_HEIGHT_ - The AddPassButton's default height
