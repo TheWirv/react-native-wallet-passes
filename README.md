@@ -107,6 +107,12 @@ Create `wallet_passes_file_paths.xml` file in your project's `android/src/main/r
 import {WalletPasses} from 'react-native-wallet-passes';
 ```
 
+or import the `default` export:
+
+```jsx
+import WalletPasses from 'react-native-wallet-passes';
+```
+
 ### Check whether the device supports adding passes
 
 ```jsx
@@ -132,7 +138,7 @@ WalletPasses.addPass(base64EncodedPass, 'com.yourcompany.fileprovider');
 ### Display a button that enables users to add passes to Wallet (iOS only)
 
 ```jsx
-import {AddPassButton, AddPassButtonStyle} from 'react-native-wallet-passes';
+import {AddPassButton, ADD_PASS_BUTTON_CONSTANTS} from 'react-native-wallet-passes';
 import type {FunctionComponent} from 'react';
 import {styles} from './styles';
 
@@ -140,7 +146,7 @@ const App: FunctionComponent = () => {
   return (
     <AddPassButton
       style={styles.addPassButton}
-      addPassButtonStyle={AddPassButtonStyle.black}
+      addPassButtonStyle={ADD_PASS_BUTTON_CONSTANTS.STYLE.BLACK_OUTLINE}
       onPress={() => {
         console.log('onPress');
       }}
@@ -163,13 +169,15 @@ const App: FunctionComponent = () => {
       onAddPassesViewControllerDidFinish,
     );
 
-    return removeWalletPassesEventListener;
+    return removeWalletPassesEventListener.remove;
   }, []);
 
   const onAddPassesViewControllerDidFinish = () => {
     // Add-passes view controller has been dismissed
     console.log('onAddPassesViewControllerDidFinish');
   };
+
+  return null;
 };
 ```
 
