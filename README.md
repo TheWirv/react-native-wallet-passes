@@ -172,12 +172,12 @@ import type {FunctionComponent} from 'react';
 
 const App: FunctionComponent = () => {
   useLayoutEffect(() => {
-    const removeWalletPassesEventListener = WalletPasses.addEventListener(
+    const walletPassesEventSubscription = WalletPasses.addEventListener(
       'addPassesViewControllerDidFinish',
       onAddPassesViewControllerDidFinish,
     );
 
-    return removeWalletPassesEventListener.remove;
+    return walletPassesEventSubscription.remove;
   }, []);
 
   const onAddPassesViewControllerDidFinish = () => {
