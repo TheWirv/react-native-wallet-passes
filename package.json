@@ -1,6 +1,6 @@
 {
   "name": "react-native-wallet-passes",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "React Native module to handle Wallet passes on iOS and Android.",
   "scripts": {
     "prepare": "bob build",
