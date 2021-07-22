@@ -11,36 +11,36 @@
 @implementation RNWPAddPassButtonContainer
 
 - (instancetype)initWithAddPassButtonStyle:(PKAddPassButtonStyle)style {
-  if (self = [super init]) {
-    self.addPassButton = [[PKAddPassButton alloc] initWithAddPassButtonStyle:style];
-    self.addPassButton.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    [self.addPassButton addTarget:self
-                           action:@selector(addPassButtonDidTouchUpInside:)
-                 forControlEvents:UIControlEventTouchUpInside];
-    [super setFrame:self.addPassButton.frame];
-    [self addSubview:self.addPassButton];
-  }
-
-  return self;
+    if (self = [super init]) {
+        self.addPassButton = [[PKAddPassButton alloc] initWithAddPassButtonStyle:style];
+        self.addPassButton.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        [self.addPassButton addTarget:self
+                               action:@selector(addPassButtonDidTouchUpInside:)
+                     forControlEvents:UIControlEventTouchUpInside];
+        [super setFrame:self.addPassButton.frame];
+        [self addSubview:self.addPassButton];
+    }
+    
+    return self;
 }
 
 - (PKAddPassButtonStyle)addPassButtonStyle {
-  if (self.addPassButton != nil) {
-    return self.addPassButton.addPassButtonStyle;
-  }
-  return PKAddPassButtonStyleBlack;
+    if (self.addPassButton != nil) {
+        return self.addPassButton.addPassButtonStyle;
+    }
+    return PKAddPassButtonStyleBlack;
 }
 
 - (void)setAddPassButtonStyle:(PKAddPassButtonStyle)addPassButtonStyle {
-  if (self.addPassButton != nil) {
-    self.addPassButton.addPassButtonStyle = addPassButtonStyle;
-  }
+    if (self.addPassButton != nil) {
+        self.addPassButton.addPassButtonStyle = addPassButtonStyle;
+    }
 }
 
 - (void)addPassButtonDidTouchUpInside:(id)sender {
-   if (self.onPress) {
-     self.onPress(@{});
-   }
+    if (self.onPress) {
+        self.onPress(@{});
+    }
 }
 
 @end

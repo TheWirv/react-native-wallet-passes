@@ -43,7 +43,11 @@ const WalletPasses = {
    * @param listener The listener function
    * @param context Context of the listener
    */
-  addEventListener: (eventType: string, listener: (event: any) => void, context?: Object) => {
+  addEventListener: (
+    eventType: 'addPassesViewControllerDidFinish',
+    listener: (event: any) => void,
+    context?: Object,
+  ) => {
     if (Platform.OS === 'ios') {
       return nativeEventEmitter.addListener(eventType, listener, context);
     }

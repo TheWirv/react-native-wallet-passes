@@ -15,49 +15,49 @@ RCT_EXPORT_MODULE()
 
 RCT_EXPORT_METHOD(canAddPasses:(RCTPromiseResolveBlock)resolve
                   rejector:(RCTPromiseRejectBlock)reject) {
-  resolve(@([PKAddPassesViewController canAddPasses]));
+    resolve(@([PKAddPassesViewController canAddPasses]));
 }
 
 RCT_EXPORT_METHOD(addPass:(NSString *)base64Encoded
                   resolver:(RCTPromiseResolveBlock)resolve
                   rejector:(RCTPromiseRejectBlock)reject) {
-  NSData *data = [[NSData alloc] initWithBase64EncodedString:base64Encoded options:NSUTF8StringEncoding];
-  NSError *error;
-  PKPass *pass = [[PKPass alloc] initWithData:data error:&error];
-
-  if (error) {
-    reject(@"", @"Failed to create pass.", error);
-    return;
-  }
-
-  dispatch_async(dispatch_get_main_queue(), ^{
-    UIViewController *rootViewController = [self getPresenterViewController];
-    if (rootViewController) {
-      PKAddPassesViewController *addPassesViewController = [[PKAddPassesViewController alloc] initWithPass:pass];
-      addPassesViewController.delegate = self;
-      [rootViewController presentViewController:addPassesViewController animated:YES completion:^{
-        // Succeeded
-        resolve(nil);
-      }];
-      return;
+    NSData *data = [[NSData alloc] initWithBase64EncodedString:base64Encoded options:NSUTF8StringEncoding];
+    NSError *error;
+    PKPass *pass = [[PKPass alloc] initWithData:data error:&error];
+    
+    if (error) {
+        reject(@"", @"Failed to create pass.", error);
+        return;
     }
-
-    reject(@"", @"Failed to present PKAddPassesViewController.", nil);
-  });
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        UIViewController *rootViewController = [self getPresenterViewController];
+        if (rootViewController) {
+            PKAddPassesViewController *addPassesViewController = [[PKAddPassesViewController alloc] initWithPass:pass];
+            addPassesViewController.delegate = self;
+            [rootViewController presentViewController:addPassesViewController animated:YES completion:^{
+                // Succeeded
+                resolve(nil);
+            }];
+            return;
+        }
+        
+        reject(@"", @"Failed to present PKAddPassesViewController.", nil);
+    });
 }
 
 - (NSDictionary *)constantsToExport {
-  PKAddPassButton *addPassButton = [[PKAddPassButton alloc] initWithAddPassButtonStyle:PKAddPassButtonStyleBlack];
-  [addPassButton layoutIfNeeded];
-
-  return @{
-           @"ADD_PASS_BUTTON_STYLE": @{
-               @"BLACK": @(PKAddPassButtonStyleBlack),
-               @"BLACK_OUTLINE": @(PKAddPassButtonStyleBlackOutline),
-               },
-           @"ADD_PASS_BUTTON_WIDTH": @(CGRectGetWidth(addPassButton.frame)),
-           @"ADD_PASS_BUTTON_HEIGHT": @(CGRectGetHeight(addPassButton.frame)),
-           };
+    PKAddPassButton *addPassButton = [[PKAddPassButton alloc] initWithAddPassButtonStyle:PKAddPassButtonStyleBlack];
+    [addPassButton layoutIfNeeded];
+    
+    return @{
+        @"ADD_PASS_BUTTON_STYLE": @{
+                @"BLACK": @(PKAddPassButtonStyleBlack),
+                @"BLACK_OUTLINE": @(PKAddPassButtonStyleBlackOutline),
+        },
+        @"ADD_PASS_BUTTON_WIDTH": @(CGRectGetWidth(addPassButton.frame)),
+        @"ADD_PASS_BUTTON_HEIGHT": @(CGRectGetHeight(addPassButton.frame)),
+    };
 }
 
 + (BOOL)requiresMainQueueSetup {
@@ -67,15 +67,15 @@ RCT_EXPORT_METHOD(addPass:(NSString *)base64Encoded
 #pragma mark - PKAddPassesViewControllerDelegate
 
 - (void)addPassesViewControllerDidFinish:(PKAddPassesViewController *)controller {
-  [controller dismissViewControllerAnimated:YES completion:^{
-    [self sendEventWithName:@"addPassesViewControllerDidFinish" body:nil];
-  }];
+    [controller dismissViewControllerAnimated:YES completion:^{
+        [self sendEventWithName:@"addPassesViewControllerDidFinish" body:nil];
+    }];
 }
 
 #pragma mark - RCTEventEmitter implementation
 
 - (NSArray<NSString *> *)supportedEvents {
-  return @[@"addPassesViewControllerDidFinish"];
+    return @[@"addPassesViewControllerDidFinish"];
 }
 
 #pragma mark - helper methods
@@ -83,11 +83,11 @@ RCT_EXPORT_METHOD(addPass:(NSString *)base64Encoded
 - (UIViewController *)getPresenterViewController {
     UIApplication *sharedApplication = RCTSharedApplication();
     UIViewController *presentingViewcontroller = sharedApplication.delegate.window.rootViewController;
-
+    
     if (presentingViewcontroller.presentedViewController != nil) {
         presentingViewcontroller = presentingViewcontroller.presentedViewController;
     }
-
+    
     return presentingViewcontroller;
 }
 ​

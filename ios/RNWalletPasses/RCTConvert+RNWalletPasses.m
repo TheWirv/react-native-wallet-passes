@@ -12,7 +12,7 @@
 @implementation RCTConvert (RNWalletPasses)
 
 + (PKAddPassButtonStyle)PKAddPassButtonStyle:(id)json {
-  return (PKAddPassButtonStyle)json;
+    return (PKAddPassButtonStyle)json;
 }
 
 @end

@@ -16,14 +16,14 @@
 RCT_EXPORT_MODULE()
 
 RCT_CUSTOM_VIEW_PROPERTY(addPassButtonStyle, PKAddPassButtonStyle, RNWPAddPassButtonContainer) {
-  view.addPassButtonStyle = json ? [RCTConvert PKAddPassButtonStyle:json] : defaultView.addPassButtonStyle;
+    view.addPassButtonStyle = json ? [RCTConvert PKAddPassButtonStyle:json] : defaultView.addPassButtonStyle;
 }
 
 RCT_EXPORT_VIEW_PROPERTY(onPress, RCTBubblingEventBlock)
 
 - (UIView *)view {
-  RNWPAddPassButtonContainer *addPassButtonContainer = [[RNWPAddPassButtonContainer alloc] initWithAddPassButtonStyle:PKAddPassButtonStyleBlack];
-  return addPassButtonContainer;
+    RNWPAddPassButtonContainer *addPassButtonContainer = [[RNWPAddPassButtonContainer alloc] initWithAddPassButtonStyle:PKAddPassButtonStyleBlack];
+    return addPassButtonContainer;
 }
 
 @end
