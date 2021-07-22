@@ -1,9 +1,10 @@
+# frozen_string_literal: true
+
 require 'json'
 
-Pod::Spec.new do |s|
-  # NPM package specification
-  package = JSON.parse(File.read(File.join(File.dirname(__FILE__), 'package.json')))
+package = JSON.parse(File.read(File.join(__dir__, 'package.json')))
 
+Pod::Spec.new do |s|
   s.name            = package['name']
   s.version         = package['version']
   s.homepage        = package['homepage']

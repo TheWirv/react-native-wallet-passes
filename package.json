@@ -10,16 +10,6 @@
   "main": "lib/commonjs/index.js",
   "module": "lib/module/index.js",
   "types": "lib/typescript/index.d.ts",
-  "files": [
-    "src",
-    "lib",
-    "android/build.gradle",
-    "android/src/main/AndroidManifest.xml",
-    "android/src/main/java/",
-    "ios/",
-    "README.md",
-    "RNGestureHandler.podspec"
-  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/TheWirv/react-native-wallet-passes.git"
@@ -78,5 +68,12 @@
       "module",
       "typescript"
     ]
-  }
+  },
+  "files": [
+    "android",
+    "ios",
+    "lib",
+    "src",
+    "react-native-wallet-passes.podspec"
+  ]
 }
