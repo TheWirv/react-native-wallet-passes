@@ -84,7 +84,7 @@ RCT_EXPORT_METHOD(addPass:(NSString *)base64Encoded
 
 - (void)addPassesViewControllerDidFinish:(PKAddPassesViewController *)controller {
     [controller dismissViewControllerAnimated:YES completion:^{
-        if (hasListenersRegistered) {
+        if (self->hasListenersRegistered) {
             [self sendEventWithName:@"addPassesViewControllerDidFinish" body:nil];
         }
     }];
