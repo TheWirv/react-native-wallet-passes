@@ -11,6 +11,10 @@
 
 @implementation RNWalletPasses
 
+{
+    bool hasListenersRegistered;
+}
+
 RCT_EXPORT_MODULE()
 
 RCT_EXPORT_METHOD(canAddPasses:(RCTPromiseResolveBlock)resolve
@@ -64,18 +68,26 @@ RCT_EXPORT_METHOD(addPass:(NSString *)base64Encoded
     return YES;
 }
 
-#pragma mark - PKAddPassesViewControllerDelegate
+#pragma mark - RCTEventEmitter implementation
 
-- (void)addPassesViewControllerDidFinish:(PKAddPassesViewController *)controller {
-    [controller dismissViewControllerAnimated:YES completion:^{
-        [self sendEventWithName:@"addPassesViewControllerDidFinish" body:nil];
-    }];
+- (void)startObserving {
+    hasListenersRegistered = YES;
 }
 
-#pragma mark - RCTEventEmitter implementation
+- (void)stopObserving {
+    hasListenersRegistered = NO;
+}
 
 - (NSArray<NSString *> *)supportedEvents {
     return @[@"addPassesViewControllerDidFinish"];
+}
+
+- (void)addPassesViewControllerDidFinish:(PKAddPassesViewController *)controller {
+    [controller dismissViewControllerAnimated:YES completion:^{
+        if (hasListenersRegistered) {
+            [self sendEventWithName:@"addPassesViewControllerDidFinish" body:nil];
+        }
+    }];
 }
 
 #pragma mark - helper methods
