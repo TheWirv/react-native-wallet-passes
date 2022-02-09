@@ -76,6 +76,12 @@ react-native link react-native-wallet-passes
 
 #### Add following lines to AndroidManifest.xml
 
+If you don't already have the namespace `tools` defined in your `<manifest>` definition, add it now:
+
+```xml
+  <manifest ... xmlns:tools="http://schemas.android.com/tools" package="...">
+```
+
 ```diff
 <manifest ...>
   <application ...>
