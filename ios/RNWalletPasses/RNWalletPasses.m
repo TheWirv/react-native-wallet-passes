@@ -57,7 +57,6 @@ RCT_EXPORT_METHOD(addPasses:(NSArray *)base64EncodedFiles
     NSMutableArray *pkpasses = [[NSMutableArray alloc]init];
     
     for (id base64Encoded in base64EncodedFiles) {
-        NSLog(@"Encoded passes: %@", base64Encoded);
         NSData *data = [[NSData alloc] initWithBase64EncodedString:base64Encoded options:NSUTF8StringEncoding];
         NSError *error;
         PKPass *pass = [[PKPass alloc] initWithData:data error:&error];
