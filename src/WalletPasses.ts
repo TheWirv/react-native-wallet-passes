@@ -37,22 +37,16 @@ const WalletPasses = {
   },
 
   /**
-   * Adds a passes to the Wallet. Only for iOS
+   * Adds multiple passes to the Wallet. Only for iOS.
    *
    * @param encodedPassFiles array of Base64-encoded Wallet pass file
    */
   addPasses: (encodedPassFiles: string[]): Promise<void> => {
-    if (Platform.OS === 'android') {
-      return Promise.reject(false);
-    }
-
     if (Platform.OS === 'ios') {
       return RNWalletPasses.addPasses(encodedPassFiles);
     }
 
-    return new Promise((_resolve, reject) =>
-      reject('Platforms other than iOS and Android are not supported.'),
-    );
+    return new Promise((_resolve, reject) => reject('Platforms other than iOS are not supported.'));
   },
 
   /**
