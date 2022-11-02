@@ -37,6 +37,19 @@ const WalletPasses = {
   },
 
   /**
+   * Adds multiple passes to the Wallet. Only for iOS.
+   *
+   * @param encodedPassFiles array of Base64-encoded Wallet pass file
+   */
+  addPasses: (encodedPassFiles: string[]): Promise<void> => {
+    if (Platform.OS === 'ios') {
+      return RNWalletPasses.addPasses(encodedPassFiles);
+    }
+
+    return new Promise((_resolve, reject) => reject('Platforms other than iOS are not supported.'));
+  },
+
+  /**
    * Add the specified listener, this call passes through to the NativeModule addListener
    *
    * @param eventType The name of the event for which we are registering the listener
