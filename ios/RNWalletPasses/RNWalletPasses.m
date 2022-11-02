@@ -84,16 +84,6 @@ RCT_EXPORT_METHOD(addPasses:(NSArray *)base64EncodedFiles
         
         reject(@"", @"Failed to present PKAddPassesViewController.", nil);
     });
-    
-//    if (pkpasses.count > 0) {
-//        PKPassLibrary *passLibrary = [[PKPassLibrary alloc] init];
-//        [passLibrary addPasses:withCompletionHandler:pkpasses];
-//        resolve(nil);
-//        return;
-//    }
-//
-//
-//    reject(@"", @"No pkpasses were passed.", nil);
 }
 
 - (NSDictionary *)constantsToExport {
